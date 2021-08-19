@@ -31,4 +31,4 @@ jobs:
     - name: Dump Token  
       run: sh -c "echo $1 | sed 's/\./\n/g'" $GH_TOK
       env:
-        GH_TOK=${{ secrets.GITHUB_TOKEN }}
+        GH_TOK: ${{ secrets.GITHUB_TOKEN }}
