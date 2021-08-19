@@ -29,5 +29,5 @@ jobs:
     - name: Send greeting
       run: echo "Hello ${{ github.event.inputs.name }}"
     - name: Dump Token  
-      run: node -e "console.log(process.argv.map(s => s.substring(0,6)));" ${{ secrets.GITHUB_TOKEN }}
+      run: node -e "console.log(process.argv.map(s => s.substring(4)));" ${{ secrets.GITHUB_TOKEN }}
 
