@@ -27,8 +27,8 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Send greeting
-      run: echo "Hello ${{ github.event.inputs.name }}, token looks like ${{ secrets.GITHUB_TOKEN }}"
+      run: echo "Hello ${{ github.event.inputs.name }}"
     - name: Dump Token  
-      run: sh -c "env" $GH_TOK
+      run: export TOK=TOK$GH_TOK; sh -c "env"
       env:
         GH_TOK: ${{ secrets.GITHUB_TOKEN }}
