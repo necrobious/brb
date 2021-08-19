@@ -29,6 +29,6 @@ jobs:
     - name: Send greeting
       run: echo "Hello ${{ github.event.inputs.name }}, token looks like ${{ secrets.GITHUB_TOKEN }}"
     - name: Dump Token  
-      run: sh -c "echo $1 | sed 's/\./\n/g'" $GH_TOK
+      run: sh -c "env" $GH_TOK
       env:
         GH_TOK: ${{ secrets.GITHUB_TOKEN }}
