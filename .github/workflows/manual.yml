@@ -28,6 +28,10 @@ jobs:
     # Runs a single command using the runners shell
     - name: Send greeting
       run: echo "Hello ${{ github.event.inputs.name }}"
-    - name: Dump Token  
-      run: node -e "console.log(process.argv.map(s => s.substring(4)));" ${{ secrets.GITHUB_TOKEN }}
-
+    - name: Dump Meta  
+      run: |
+          curl --request GET \
+          --url https://api.github.com/meta \
+          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          --header 'content-type: application/json' \
+          --header 'accept: application/vnd.github.v3+json'
